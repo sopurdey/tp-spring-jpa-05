@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://wwww.w3.org/TR/xhtml11/.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: taghead"></head>
+
+<nav th:replace="fragments/navbar :: tagnavbar"></nav>
+
+<body>
+	<h1 th:text="${titre}"></h1>
+	<hr />
+	<table class="table table-striped text-center">
+		<thead>
+			<tr>
+				<th>Nom</th>
+				<th>Prénom</th>
+				<th>Date de naissance</th>
+				<th>Adresse</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="client : ${clients}">
+				<td th:text="${client.nom}"></td>
+				<td th:text="${client.prenom}"></td>
+				<td th:text="${#dates.format(client.dateNaissance, 'dd/MM/yyyy')}"></td>
+				<td th:text="${client.adresse}"></td>
+				<td><a class="text-success" th:href="@{/client/update/{id}(id=${client.id})}">Modifier</a>
+					| <a class="text-danger" th:href="@{/client/delete/{id}(id=${client.id})}">Supprimer</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<footer th:replace="fragments/footer :: tagfooter"></footer>
+
+</body>
+
+</html>

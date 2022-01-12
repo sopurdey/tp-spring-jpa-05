@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.diginamic.tpspringjpa05.exception.ClientNotFoundException;
 import fr.diginamic.tpspringjpa05.model.Client;
-import fr.diginamic.tpspringjpa05.model.Compte;
 import fr.diginamic.tpspringjpa05.repository.iCrudClient;
 
 @RestController

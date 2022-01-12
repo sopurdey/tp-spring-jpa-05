@@ -47,7 +47,7 @@ public class Adresse {
 
 	@Override
 	public String toString() {
-		return "Adresse : " + numero + " " + rue + " " + codePostal + " " + ville;
+		return numero + " " + rue + " " + codePostal + " " + ville;
 	}
 
 	public int getNumero() {

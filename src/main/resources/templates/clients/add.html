@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://wwww.w3.org/TR/xhtml11/.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: taghead"></head>
+
+<nav th:replace="fragments/navbar :: tagnavbar"></nav>
+
+<body>
+	<h1 th:text="${titre}">Ajouter un client</h1>
+	<div class="m-5">
+		<span class="alert alert-danger m-5" th:each="e: ${Errors}"
+			th:text='${e.getField() + " --- " + e.getDefaultMessage()}'></span>
+	</div>
+	<form class="form" th:action="@{/client/add}" th:object="${clientForm}" method="POST">
+		<div class="form-container m-5">
+			<div class="form-group">
+				Prénom :
+				<input id="prenom" type="text" th:field="*{prenom}" />
+				Nom :
+				<input type="text" th:field="*{nom}" />
+			</div>
+			<div class="form-group">
+				<label>Date de naissance :</label>
+				<input type="date" th:field="*{dateNaissance}" />
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-12 col-6">
+					<label>Numéro de rue :</label>
+					<input class="mr-3" type="text" th:field="*{adresse.numero}" />
+					<label>Rue :</label>
+					<input class="mr-3" type="text" th:field="*{adresse.rue}" />
+				</div>
+				<div class="col-sm-12 col-6">
+					<label>CP : </label>
+					<input class="mr-3" type="text" th:field="*{adresse.codePostal}" />
+					<label>Ville :</label>
+					<input class="mr-3" type="text" th:field="*{adresse.ville}" />
+				</div>
+			</div>
+			<input class="btn btn-outline-success" type="submit" value="Ajouter" />
+	</form>
+
+	<footer th:replace="fragments/footer :: tagfooter"></footer>
+</body>
+
+</html>

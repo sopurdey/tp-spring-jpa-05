@@ -1,0 +1,26 @@
+<nav th:fragment="tagnavbar" class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">TP05 SpringBoot</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/}">Accueil</a>
+				</li><!-- nav-item -->
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" th:href="@{/client/clients}" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Clients
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/client/clients}">Liste</a>
+						<a class="dropdown-item" th:href="@{/client/add}">Ajouter</a>
+					</div>
+				</li>
+			</ul><!-- navbar-nav -->
+		</div><!-- collapse -->
+	</div>
+</nav>
