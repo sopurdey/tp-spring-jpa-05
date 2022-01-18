@@ -7,7 +7,9 @@
 
 <body>
 	<h1 th:text="${titre}"></h1>
-	<hr />
+	<div class="container-fluid d-flex justify-content-end">
+		<a th:href="@{/client/add}" class="btn btn-outline-success mb-3">Ajouter un client</a>
+	</div>
 	<table class="table table-striped text-center">
 		<thead>
 			<tr>
@@ -15,6 +17,7 @@
 				<th>Prénom</th>
 				<th>Date de naissance</th>
 				<th>Adresse</th>
+				<th>Comptes</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -24,6 +27,11 @@
 				<td th:text="${client.prenom}"></td>
 				<td th:text="${#dates.format(client.dateNaissance, 'dd/MM/yyyy')}"></td>
 				<td th:text="${client.adresse}"></td>
+				<td>
+					<ul class="list-group" th:each="compte : ${client.comptes}">
+						<li class="list-unstyled" th:text="${compte}"></li>
+					</ul>
+				</td>
 				<td><a class="text-success" th:href="@{/client/update/{id}(id=${client.id})}">Modifier</a>
 					| <a class="text-danger" th:href="@{/client/delete/{id}(id=${client.id})}">Supprimer</a>
 				</td>

@@ -2,6 +2,7 @@ package fr.diginamic.tpspringjpa05.controllerrest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import fr.diginamic.tpspringjpa05.model.Compte;
 import fr.diginamic.tpspringjpa05.model.CompteCourant;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/assurancevie")
 public class ControllerAssuranceVie extends ControllerCpt<AssuranceVie> {
 
@@ -58,6 +60,12 @@ public class ControllerAssuranceVie extends ControllerCpt<AssuranceVie> {
 	public AssuranceVie addCompte(@RequestBody Compte compte) {
 
 		return (AssuranceVie) cc.save(compte);
+	}
+
+	@Override
+	public String getType() {
+
+		return "Assurance Vie";
 	}
 
 }

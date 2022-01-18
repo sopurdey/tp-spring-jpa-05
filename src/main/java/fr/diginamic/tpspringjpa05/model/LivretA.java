@@ -35,7 +35,7 @@ public class LivretA extends Compte {
 
 	@Override
 	public String toString() {
-		return "LivretA [taux=" + taux + ", id=" + getId() + ", numéro=" + getNumero() + ", solde=" + getSolde() + "]";
+		return "LivretA - Numéro : " + getNumero() + ", Solde=" + getSolde() + solde + " €, Taux : "  + taux + " %";
 	}
 
 	public double getTaux() {
@@ -44,6 +44,12 @@ public class LivretA extends Compte {
 
 	public void setTaux(double taux) {
 		this.taux = taux;
+	}
+
+	@Override
+	public String getType() {
+
+		return "Livret A";
 	}
 
 }

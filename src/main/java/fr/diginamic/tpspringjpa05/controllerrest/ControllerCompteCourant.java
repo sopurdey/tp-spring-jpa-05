@@ -2,6 +2,7 @@ package fr.diginamic.tpspringjpa05.controllerrest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import fr.diginamic.tpspringjpa05.model.Compte;
 import fr.diginamic.tpspringjpa05.model.CompteCourant;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/comptecourant")
 public class ControllerCompteCourant extends ControllerCpt<CompteCourant> {
 
@@ -59,6 +61,12 @@ public class ControllerCompteCourant extends ControllerCpt<CompteCourant> {
 	public CompteCourant addCompte(@RequestBody Compte compte) {
 
 		return (CompteCourant) cc.save(compte);
+	}
+
+	@Override
+	public String getType() {
+
+		return "Compte Courant";
 	}
 
 }

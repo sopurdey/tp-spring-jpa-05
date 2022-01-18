@@ -10,16 +10,22 @@
 				<li class="nav-item">
 					<a class="nav-link" th:href="@{/}">Accueil</a>
 				</li><!-- nav-item -->
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/client/clients}">Clients</a>
+				</li><!-- nav-item -->
+				<!-- Dropdown Comptes -->
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" th:href="@{/client/clients}" id="navbarDropdown" role="button"
+					<a class="nav-link dropdown-toggle" th:href="@{/compte/comptes}" id="navbarDropdown" role="button"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Clients
+						Comptes
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" th:href="@{/client/clients}">Liste</a>
-						<a class="dropdown-item" th:href="@{/client/add}">Ajouter</a>
+						<a class="dropdown-item" th:href="@{/compte/comptes}">Tous les Comptes</a>
+						<a class="dropdown-item" th:href="@{/compte/comptescourant}">Comptes Courant</a>
+						<a class="dropdown-item" th:href="@{/compte/assurancesvie}">Assurance Vie</a>
+						<a class="dropdown-item" th:href="@{/compte/livretsa}">Livret A</a>
 					</div>
-				</li>
+				</li><!-- nav-item dropdown -->
 			</ul><!-- navbar-nav -->
 		</div><!-- collapse -->
 	</div>

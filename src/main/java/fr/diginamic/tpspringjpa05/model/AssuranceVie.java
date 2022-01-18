@@ -7,6 +7,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 /**
  * Compte de type Assurance Vie
  * 
@@ -17,6 +19,7 @@ import javax.persistence.TemporalType;
 @Table(name="ASSURANCEVIE")
 public class AssuranceVie extends Compte {
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Date dateFin;
 	private double taux;
 
@@ -43,8 +46,7 @@ public class AssuranceVie extends Compte {
 
 	@Override
 	public String toString() {
-		return "AssuranceVie [dateFin=" + dateFin + ", taux=" + taux + ", id=" + getId() + ", numéro=" + getNumero()
-				+ ", solde=" + getSolde() + "]";
+		return "AssuranceVie - Numéro : " + getNumero() + ", Solde : " + getSolde() + " €, Date de fin : " + dateFin + ", Taux : " + taux + " %";
 	}
 
 	public Date getDateFin() {
@@ -61,6 +63,12 @@ public class AssuranceVie extends Compte {
 
 	public void setTaux(double taux) {
 		this.taux = taux;
+	}
+
+	@Override
+	public String getType() {
+
+		return "Assurance Vie";
 	}
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,14 @@ import fr.diginamic.tpspringjpa05.exception.ClientNotFoundException;
 import fr.diginamic.tpspringjpa05.model.Client;
 import fr.diginamic.tpspringjpa05.repository.iCrudClient;
 
+/**
+ * @CrossOrigin ajouté pour être utilisé par les APP WEB en ReactJS, Angular,
+ *              VueJS...
+ * @author A Purdey
+ *
+ */
 @RestController
+@CrossOrigin
 @RequestMapping("api/client")
 public class ControllerClient {
 	@Autowired
@@ -30,7 +38,7 @@ public class ControllerClient {
 
 	@GetMapping("all")
 	public Iterable<Client> getClients() {
-		
+
 		return cc.findAll();
 	}
 
@@ -52,9 +60,10 @@ public class ControllerClient {
 		cc.deleteById(pid);
 		return ResponseEntity.status(HttpStatus.OK).body("Client supprimé !");
 	}
-	
+
 	@PutMapping("{id}")
-	public Client updateClient(@PathVariable("id") Integer pid, @Valid @RequestBody Client client, BindingResult result) throws ClientNotFoundException {
+	public Client updateClient(@PathVariable("id") Integer pid, @Valid @RequestBody Client client, BindingResult result)
+			throws ClientNotFoundException {
 		if (result.hasErrors()) {
 			String s = result.toString();
 			throw new ClientNotFoundException(s);
@@ -69,11 +78,10 @@ public class ControllerClient {
 		}
 		return cc.save(client);
 	}
-	
+
 	@PostMapping
 	public Client addClient(@Valid @RequestBody Client client, BindingResult result) throws ClientNotFoundException {
-		if(result.hasErrors())
-		{
+		if (result.hasErrors()) {
 			String s = result.toString();
 			throw new ClientNotFoundException(s);
 		}

@@ -2,6 +2,7 @@ package fr.diginamic.tpspringjpa05.controllerrest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,7 @@ import fr.diginamic.tpspringjpa05.model.Compte;
 import fr.diginamic.tpspringjpa05.model.LivretA;
 
 @RestController
+@CrossOrigin
 @RequestMapping("api/livreta")
 public class ControllerLivretA extends ControllerCpt<LivretA> {
 
@@ -58,5 +60,11 @@ public class ControllerLivretA extends ControllerCpt<LivretA> {
 	public LivretA addCompte(@RequestBody Compte compte) {
 
 		return (LivretA) cc.save(compte);
+	}
+
+	@Override
+	public String getType() {
+		
+		return "Livret A";
 	}
 }

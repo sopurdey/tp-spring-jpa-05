@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://wwww.w3.org/TR/xhtml11/.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: taghead"></head>
+
+<nav th:replace="fragments/navbar :: tagnavbar"></nav>
+
+<body>
+	<h1 th:text="${ titre }"></h1>
+	<form th:action="@{/compte/update/la}" th:object="${compteLAForm}" method="POST">
+		<div class="form-container m-5">
+			<div class="form-group">
+				Numéro :
+				<input id="prenom" type="text" th:field="*{numero}" />
+				Solde :
+				<input type="text" th:field="*{solde}" />
+				Taux :
+				<input type="text" th:field="*{taux}" />
+			</div>
+			<input type="hidden" th:field="*{id}" />
+			<input type="submit" class="btn btn-outline-success" value="Mettre à jour" />
+		</div>
+	</form>
+
+	<footer th:replace="fragments/footer :: tagfooter"></footer>
+
+</body>
+
+</html>

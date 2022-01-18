@@ -26,6 +26,8 @@ public abstract class Compte implements Serializable {
 	protected String numero;
 
 	protected double solde;
+	
+	public abstract String getType();
 
 	/**
 	 * Constructeur par défaut
@@ -47,7 +49,7 @@ public abstract class Compte implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Compte [id=" + id + ", numero=" + numero + ", solde=" + solde + "]";
+		return "Numero de compte : " + numero + ", Solde : =" + solde;
 	}
 
 	public Integer getId() {

@@ -1,5 +1,7 @@
 package fr.diginamic.tpspringjpa05.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
@@ -30,4 +32,8 @@ public interface iCrudCompte extends CrudRepository<Compte, Integer> {
 	
 	@Query("select l from LivretA l")
 	public Iterable<LivretA> getAllLivretAs();
+	
+	@Query("select c from CompteCourant c where c.id = :id")
+	public Optional<CompteCourant> findCCById(int id);
+
 }
